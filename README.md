@@ -9,6 +9,8 @@ We'll be adding the banners as a window ontop of MOAI as this makes a big differ
 
 Note: If you're only using interstitials these changes may not be needed but I have not tested this.
 
+See https://github.com/moaiforge/moai-sdk/wiki/Using-Plugins on how to add this plugin to your moai build.
+
 1. Import google play services in your app. This will allow you to import the play services package in Moai.java.
 http://developer.android.com/google/play-services/setup.html
 Follow the steps here, I've used the "Something else" option for 1.5 stable. I am not checking if the user has the latest google play services installed as I've been told it is not required for ads to properly function.
@@ -70,38 +72,39 @@ List of functions available:
 ```lua
 --Calling this before any other functions and you will receive test ads. 
 --Do this while testing to prevent accidental clicks which can apparently result in account suspension.
-MOAIAdmob.requestTestAds()
+MOAIAdmobAndroid.requestTestAds()
 
 --Start loading a banner ad. On the google admob management page you can specify whether banners should auto refresh or not.
 --There's no harm in calling this while a banner is still loading, if a banner is still loading this will do nothing instead.
-MOAIAdmob.loadBanner()
+MOAIAdmobAndroid.loadBanner()
 
 --Boolean whether your banner is ready or not. If a banner is still loading this will return false. 
---Since loadBanner does not cause another banner to load if it's still actually loading a banner there's no harm in continously checking between your gamestates this and attempting to load a banner if false.
-MOAIAdmob.bannerReady()
+--loadBanner does not cause another banner to load if it's still loading a previous banner.
+--There's no harm in continously checking between your gamestates whether an ad is ready and if not loading one.
+MOAIAdmobAndroid.bannerReady()
 
 --Makes the banner visible and unpauses it. On first call this will insert the window.
-MOAIAdmob.showBanner()
+MOAIAdmobAndroid.showBanner()
 
 --Boolean whether the banner is currently visible.
-MOAIAdmob.bannerVisible()
+MOAIAdmobAndroid.bannerVisible()
 
 --Hides banner and pauses it.
-MOAIAdmob.hideBanner()
+MOAIAdmobAndroid.hideBanner()
 
 --If you're using banners call this when exiting your app to properly get rid of the banner adview without a window leaking.
-MOAIAdmob.destroyAdview()
+MOAIAdmobAndroid.destroyAdview()
 
 --Start loading an interstitial. Operates the same as loadBanner
-MOAIAdmob.loadInterstitial()
+MOAIAdmobAndroid.loadInterstitial()
 
 --Same as bannerReady
-MOAIAdmob.interstitialReady()
+MOAIAdmobAndroid.interstitialReady()
 
 --Same as banner. You can not close an interstitial, it has to be closed by the user.
-MOAIAdmob.showInterstitial()
+MOAIAdmobAndroid.showInterstitial()
 
 --This returns true as long as the interstitial is on screen. If a user presses back button or closes the interstitial this will return false. 
 --I use this to try and prevent accidental clicks while changing gamestates.
-MOAIAdmob.interstitialVisible()
+MOAIAdmobAndroid.interstitialVisible()
 ```

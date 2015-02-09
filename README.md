@@ -4,7 +4,7 @@ A plugin for MOAI that lets you use Google admob in your app.
 This plugin allows you to use interstitials and 1 pre-specified banner ad in your app. It is currently not possible to move the location of the banner ad through lua.
 
 INSTALLATION:
-To use Google Admob with the least performance impact it is required to make some changes to the default MOAI Android host also to maintain compatibility with MOAIKeyboardAndroid.
+To use Google Admob with it is required to make some changes to the default MOAI Android host to also maintain compatibility with MOAIKeyboardAndroid.
 We'll be adding the banners as a window ontop of MOAI as this makes a big difference in performance. 
 
 Note: If you're only using interstitials these changes may not be needed but I have not tested this.

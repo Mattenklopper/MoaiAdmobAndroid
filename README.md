@@ -51,10 +51,9 @@ RelativeLayout.LayoutParams paramsKeyInTextView = new RelativeLayout.LayoutParam
 paramsKeyInTextView.setMargins ( -64, 0, 0, 0 );
 ```
 
-4. Confiure your ad unit id's and the banner location.
-Open MoaiAdmob.java 
+Confiure your ad unit id's and the banner location in MoaiAdmob.java.
 
-Update the following variables to reflect your own ad unit id's. You can create ads on the google admob website.
+Open MoaiAdmob.java and update the following variables to reflect your own ad unit id's. You can create ads on the google admob website.
 bannerUnitId = "yourid"
 interstitialUnitId = "yourid"
 
@@ -69,7 +68,8 @@ After setting up the java side you can control the ads from lua.
 List of functions available:
 
 ```lua
---Calling this before any other functions and you will receive test ads. Do this while testing to prevent accidental clicks which can apparently result in account suspension.
+--Calling this before any other functions and you will receive test ads. 
+--Do this while testing to prevent accidental clicks which can apparently result in account suspension.
 MOAIAdmob.requestTestAds()
 
 --Start loading a banner ad. On the google admob management page you can specify whether banners should auto refresh or not.
@@ -101,6 +101,7 @@ MOAIAdmob.interstitialReady()
 --Same as banner. You can not close an interstitial, it has to be closed by the user.
 MOAIAdmob.showInterstitial()
 
---This returns true as long as the interstitial is on screen. If a user presses back button or closes the interstitial this will return false. I use this to try and prevent accidental clicks while changing gamestates.
+--This returns true as long as the interstitial is on screen. If a user presses back button or closes the interstitial this will return false. 
+--I use this to try and prevent accidental clicks while changing gamestates.
 MOAIAdmob.interstitialVisible()
 ```

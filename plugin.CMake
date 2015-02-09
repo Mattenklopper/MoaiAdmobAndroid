@@ -1,0 +1,4 @@
+SET(PLUGIN_INFO "Google AdMob for Android.")
+SET(PLUGIN_TARGET "moai-admob-android")
+SET(PLUGIN_PREFIX "MOAIAdmobAndroid")
+SET(PLUGIN_NEEDS_UPDATE FALSE)
